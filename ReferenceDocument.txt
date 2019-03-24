@@ -1,0 +1,378 @@
+Implicit wait
+------------------
+
+driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+
+Explicit Wait
+-------------------
+WebDriverWait wait=new WebDriverWait(driver,10).
+wait.until(ExpectedConditions.elementToBeClickable(wb));
+
+Fluent wait
+-------------------
+Wait wait=new FluentWait(driver);
+wait.withTimeouts(30,TimeUnit.SECONDS).pollingEvery(30,TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
+
+JavaScriptExecutor
+---------------------
+JavascriptExecutor jse=(JavascriptExecutor) driver;
+jse.executeScript("window.scrollBy(0,500)","");
+
+jse.executeScript("window.scrollBy(0,-500)","");
+
+GetOpeningWindows
+--------------------
+Set<String> wh=driver.getWindowHandles();
+System.out.println(wh.size());
+driver.get(size()-1).click();
+
+Upload
+------------------
+StringSelection ss=new StringSelection();
+Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss,null);
+
+Robot rb=new Robot();
+rb.keyPress(KeyEvent.VK_ENTER);
+rb.keyRelease(KeyEvent.VK_ENTER);
+
+rb.keyPress(KeyEvent.VK_CONTROL);
+rb.keyPress(KeyEvent.VK_V);
+rb.keyRelease(KeyEvent.VK_CONTROL);
+rb.keyRelease(KeyEvent.VK_V);
+
+RightClick
+---------------------
+Actions action =new Actions(driver);
+action.contextClick().perform();
+
+Actions action =new Actions(driver);
+action.doubleClick().perform();
+
+Snapshot
+------------------
+FileUtils.copyFile(driver.getScreenshotAs(OutpuType.FILE),new File("path.jpg");
+
+Alignment
+---------------
+driver.getLocation();
+driver.getLocation().getX();
+driver.getLocation().getY();
+
+driver.getSize().getHeight();
+driver.getSize().getWidth();
+
+only Digits
+--------------
+System.out.println("ABC123".replaceALL("\\D",""); will get a digits alone
+System.out.println("ABC123//".replaceALL("\\W",""); will get digits and alphabets
+
+Dynamic WebTable
+---------------
+driver.findElementsByTagName("TD");
+
+TestNG Advantage
+--------------------
+Parallel test case run
+Parameterization
+DataProvider
+Annotation
+  --Priority
+  --Ignore
+  --depends on method
+  --Expected condition
+  --SuccessPercentage
+  --Enablefalse
+  --threadpoolsize
+  --alwaystrue
+Grouping
+TestNg report generate
+
+POM Advantage
+------------------------
+
+
+int[][] a=new int[3][3];
+
+Cell[][] cell=new Cell[3][3];
+File f=new File("path");
+FileInputStream ff=new FileInputStream(f);
+
+XSSFWorkbook wb=new XSSFWorkbook(ff);
+
+XSSFSheet ws=wb.getSheetAt(0);
+XSSFSheet ws =wb.getSheet("Sheet1");
+
+int rowcount=ws.getLastRowNum();
+
+int colcount=ws.getRow(0).getLastCellNum();
+
+for (int i=0;i<rowcount+1;i++)
+{
+   XSSFRow r=ws.getRow(i);
+
+   for(int j=0;j<colcount;j++)
+
+     XSSFCell col=r.getCell(j);
+     a[i][j]=(int)col.getNumericCellValue();
+
+}
+
+XSSFSheet ws1=wb.createSheet("write");
+for(inti=0;i<rowcount+1;i++)
+
+ {
+     XSSFRow r1=ws1.createRow(i);
+
+       for(int j=0;j<colcount;j++)
+
+          XSSFCell col1=ws1.createCell(j);
+
+           Cell[i][j].setCellValue(a[i][j]);
+
+}
+
+
+FileOutputStream fos=new FileOutputStream(f);
+wb.write(fos);
+
+-------------------------------
+following tag dont have any locator
+
+//input[@id='txtStationFrom']/following::input
+--------------------------------------------
+
+<suite name ="suite" verbose="5" parallel ="classes">
+<groups>
+<run>
+<include name ="s*"></include>
+</run>
+</groups>
+<test name ="test">
+ <classes> 
+  <class name="run.groupcoding">
+</class>
+</classes>
+</test>
+</suite>
+
+----------------------------------------
+WebElement ele = driver.findElement(By.xpath("//*[@id='ext-gen128']");
+Actions build = new Actions(driver);
+build.moveToElement(ele, Xoffset, Yoffset).click().build().perform();
+
+-------------------------------------------
+swap two string without temporary variable
+String a = "one"
+String b = "two"
+
+a = a +"#"+b;
+b = a.split("#")[0];
+a = a.split("#")[1];
+
+
+Replace Empty Space
+--------------------------------------------
+String A="HELLO   Welcome".replaceAll("\\s+"," ");
+			
+System.out.println(A);
+
+Alternate variable
+----------------------------------------------
+
+String a1="abc";
+			char a2[]=a1.toCharArray();
+			String b1="xyzpp";
+			char b2[]=b1.toCharArray();
+			String s="";
+			for(int i=0;i<a1.length()||i<b1.length();i++)
+{
+if(i<a1.length())
+	{s+=a2[i];}
+	if(i<b1.length())
+			{s+=b2[i];} 
+}
+			System.out.println(s);
+
+Data Provider
+--------------------------------------------------
+@dataProvider(name="fetch")
+public object[][] getVal()
+{
+dp[][];
+excel sheet
+return dp;
+}
+
+@Test(DataProvider ="fetch")
+public void getData(String a,String b)
+{
+}
+
+Reverse a string
+--------------------------------------------------
+String s="Happy Birthday to you";
+		
+		String[] words=s.split(" ");
+		
+		String reversestring="";
+				
+		for(int i=0;i<words.length;i++)
+		{
+			String word=words[i];
+			String reverseword="";
+			for(int j=word.length()-1;j>=0;j--)
+			{
+				reverseword+=word.charAt(j);
+				
+			}
+			reversestring=reversestring+reverseword+" ";
+		}
+		
+		System.out.println(reversestring);
+	}
+
+Replace
+---------------------------------------------------
+String j="XXXhelloYYY";
+		  String k=j.replaceAll("XXX","");
+		  String m=k.replaceAll("YYY","");
+		System.out.println(m);
+		
+		String p=j.substring(3,8);
+		System.out.println(p);
+
+Page Load Time
+------------------------------------------------------
+long start = System.currentTimeMillis();
+
+driver.get("Some url");
+
+long finish = System.currentTimeMillis();
+long totalTime = finish - start; 
+System.out.println("Total Time for page load - "+totalTime); 
+
+------
+long start = System.currentTimeMillis();
+
+driver.get("Some url");
+
+WebElement ele = driver.findElement(By.id("ID of some element on the page which will load"));
+long finish = System.currentTimeMillis();
+long totalTime = finish - start; 
+System.out.println("Total Time for page load - "+totalTime); 
+--------------------
+
+Image
+-----
+driver.get('http://demo.tanmaysarkar.com/sample_04.html')
+
+image1 = driver.find_element_by_xpath("//img[contains(@alt,'image two')]")
+
+bool(driver.execute_script("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", image1))
+
+if not bool:
+    print('d')
+
+else:
+    print('c')
+
+
+if image1.size != 0 :
+    print("good")
+else:
+    print('food')
+
+
+-----
+if image1.is_displayed():
+    print('foo')
+
+else:
+    print('fii')
+
+--------------
+
+@Test
+public void CheckImage() throws Exception {
+driver.get(baseUrl);
+WebElement ImageFile = driver.findElement(By.xpath("//img[contains(@id,'Test Image')]"));
+
+    Boolean ImagePresent = (Boolean) ((JavascriptExecutor)driver).executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", ImageFile);
+    if (!ImagePresent)
+    {
+         System.out.println("Image not displayed.");
+    }
+    else
+    {
+        System.out.println("Image displayed.");
+    }
+}
+
+--------------------------------
+
+Broken Link
+
+public static int invalidLink;
+    String currentLink;
+    String temp;
+
+    public static void main(String[] args) throws IOException {
+        // Launch The Browser
+        WebDriver driver = new FirefoxDriver();
+        // Enter URL
+        driver.get("http://www.applicoinc.com");
+
+        // Get all the links URL
+        List<WebElement> ele = driver.findElements(By.tagName("a"));
+        System.out.println("size:" + ele.size());
+        boolean isValid = false;
+        for (int i = 0; i < ele.size(); i++) {
+
+            isValid = getResponseCode(ele.get(i).getAttribute("href"));
+            if (isValid) {
+                System.out.println("ValidLinks:" + ele.get(i).getAttribute("href"));
+                driver.get(ele.get(i).getAttribute("href"));
+                List<WebElement> ele1 = driver.findElements(By.tagName("a"));
+                System.out.println("InsideSize:" + ele1.size());
+                for (int j=0; j<ele1.size(); j++){
+                    isValid = getResponseCode(ele.get(j).getAttribute("href"));
+                    if (isValid) {
+                        System.out.println("ValidLinks:" + ele.get(j).getAttribute("href"));
+                    }
+                    else{
+                        System.out.println("InvalidLinks:"+ ele.get(j).getAttribute("href"));
+                    }
+                }
+
+                } else {
+                    System.out.println("InvalidLinks:"
+                            + ele.get(i).getAttribute("href"));
+                }
+
+            }
+        }
+    }
+
+
+    public static boolean getResponseCode(String urlString) {
+        boolean isValid = false;
+        try {
+            URL u = new URL(urlString);
+            HttpURLConnection h = (HttpURLConnection) u.openConnection();
+            h.setRequestMethod("GET");
+            h.connect();
+            System.out.println(h.getResponseCode());
+            if (h.getResponseCode() != 404) {
+                isValid = true;
+            }
+        } catch (Exception e) {
+
+        }
+        return isValid;
+    }
+
+
+
+
+
+

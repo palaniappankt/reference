@@ -1,0 +1,273 @@
+public class Armstrong {
+
+	public static void main(String[] args) {
+		int n=371; int n1=371;int p,sum=0;
+		while(n>1)
+		{
+			p=n%10;
+			sum=sum+p*p*p;
+			n=n/10;
+					
+		}
+		
+		System.out.println(sum );
+		if(sum==n1)
+		System.out.println("Number is a armstrong number");
+		else
+		System.out.println("not a armstron");
+	}
+}
+
+Prime Number
+---------------------------------------
+int n=14;int i;
+		for(i=2;i<n;i++)
+		{
+			if(n%i==0)
+			break;
+		}
+		if(n==i)
+		{
+			System.out.println(n+ "is a primenumber");
+		}
+------------------------------------------
+Fibonnic 
+public static void main(String[] args) {
+		int a=0;int b=1;int c=0;int n=30;
+		for(int i=1;i<n;i++)
+		{
+			System.out.println(c);
+			a=b;b=c;c=a+b;
+		}
+	}
+Sorting
+------------------------------------------int a[]={3,2,6,1};int temp=0;
+		for(int i=0;i<4;i++)
+		{
+			for(int j=i;j<4;j++)
+			{
+				if(a[i]<a[j])
+				{
+					temp=a[i];
+					a[i]=a[j];
+					a[j]=temp;					
+					
+				}			
+				
+			}
+		}
+		for(int i=0;i<4;i++)
+		{
+			System.out.println(a[i]);
+---------------------------------------------------
+Reverse a string
+
+String ar="Hi this is palani";
+		String a[]=ar.split(" ");String rever="";String con="";
+		for(int i=0;i<a.length;i++)
+		{
+			String cp=a[i];
+			for(int j=cp.length()-1;j>=0;j--)
+			{
+				rever=rever+cp.charAt(j);
+			}
+		con=rever+"   ";
+		}
+		System.out.println(con);
+
+--------------------------------------------
+
+Reverse Each word
+
+System.out.println("Reverse a string");
+		
+		String a="how are you";
+		String b[]=a.split(" "); 
+		
+		a="";
+		for(int i=0;i<b.length;i++)
+		{
+			String word=b[i];
+			String rev="";
+			
+			for(int j=0;j<word.length();j++)
+		{
+		if(j==0){
+		
+				rev=rev+word.substring(0,1).toUpperCase();}
+				else 
+				{
+					rev=rev+word.charAt(j);
+				}
+		}
+	
+			a=a+rev+" ";
+			
+			
+		}
+		
+		System.out.println(a);
+
+---------------------------------------------
+Sorting for list of alphabets
+String[] a={"banana","apple","grapes"}; String temp="";
+		
+		for(int j=0;j<a.length;j++)
+		{
+			for(int k=j+1;k<a.length;k++)
+			{
+				if((a[j].compareTo(a[k]))>0)
+				{
+					temp=a[j];
+					a[j]=a[k];
+					a[k]=temp;
+				}	
+			}
+		}
+		for(int h=0;h<a.length;h++)
+		System.out.println(a[h]);
+-----------------------------------------------------
+Adding a value
+----------------------------------------------
+String a="How are you 80% 90% 80";
+		String[] a1=a.split(" ");
+		int[] j=new int[10];
+		
+		for(int i=0;i<a1.length;i++)
+		{
+			String word=a1[i];
+			System.out.println(a1[i]);
+			try
+			{
+			j[i]=Integer.parseInt(a1[i].replaceAll("\\D",""));
+			}
+			catch(NumberFormatException e)
+			{
+				
+			}
+		}
+		
+		for(int i=0;i<6;i++)
+		{
+			System.out.println(j[i]);
+		}
+
+----------------------------------------------------
+count
+----------------------------------------------------
+String a="aaaabbcc";
+		a+="#";int s=1;
+		char[] b=a.toCharArray();
+		String c="";
+		for(int i=0;i<a.length()-1;i++)
+		{
+			if(b[i]==b[i+1])
+			{
+				c+=b[i];
+				s++;
+			}
+			else
+			{
+				c+=b[i];
+				c+=s;
+				s=1;
+			}
+---------------------------------------------------
+
+for(int i=1;i<5;i++)
+		{
+			for(int j=1;j<=i;j++)
+			{
+				
+				if(i==j)
+				{
+					System.out.print(j);
+				}
+				else
+				{
+					System.out.print("*");
+				}
+			}
+			System.out.println();
+
+-------------------------------------------------------
+Palindrome
+int a=121;
+		int i=a;int p=0;int s=0;
+		while(i>0)
+		{
+			p=i%10;
+			s=(s*10)+p;
+			i=i/10;
+			
+		}
+		if(a==s)
+		{
+			System.out.println(s);
+			System.out.println("Palindrome");
+		}
+		else
+		{
+			System.out.println(s);
+			System.out.println("Not Palindrome");
+		}
+	}
+------------------------------------------------------------
+Swapping
+---------------------------------------------------------------
+String aa="one"; 
+		String bb="two";
+		aa=aa+"#"+bb;
+		
+		bb=aa.split("#")[0];
+		aa=aa.split("#")[1];
+		System.out.println(aa+""+bb);
+------------------------------------------------------------------
+Alternate values
+---------------------------------------------------------------
+		
+		String x="one"; String z="";
+		String y="two";
+		for(int i=0;i<x.length()||i<y.length();i++)
+		{
+			if(i<x.length())
+			{
+				z+=x.charAt(i);
+			}
+			if(i<y.length())
+			{
+				z+=y.charAt(i);
+			}
+		}
+		
+		System.out.println(z);
+-------------------------------------------------------------
+String a="mam"; String b="";
+		
+		for(int i=a.length()-1;i>=0;i--)
+		{
+			b=b+a.charAt(i);
+		}
+		System.out.println(a);
+		System.out.println(b);
+		if(a.equals(b))
+		{System.out.println("Palindrome");
+			
+		}else System.out.println("Not a palindrome");
+
+-----------------------------------------------------------------
+armstrong
+int n=371; int n1=371;int p,sum=0;
+		while(n>1)
+		{
+			p=n%10;
+			sum=sum+p*p*p;
+			n=n/10;
+					
+		}
+		
+		System.out.println(sum );
+		if(sum==n1)
+		System.out.println("Number is a armstrong number");
+		else
+		System.out.println("not a armstron");
